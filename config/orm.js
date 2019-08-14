@@ -21,7 +21,6 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-
 var orm = {
 
     selectAll: function(table, cb){
@@ -33,18 +32,24 @@ var orm = {
             cb (result);
         });
     },
+    insertOne: function(table, column, values, cb){
+        var queryString = "INSERT INTO " + table;
 
-    
-    // insertOne: function(table, column, values, cb){
-    //     var queryString = "INSERT INTO " + table;
+        queryString += "(";
+        queryString += column.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(values.length);
+        queryString += ") ";
 
-    //     queryString += "(";
-    //     queryString += column.toString();
-    //     queryString += ") ";
-    //     queryString += "VALUES (";
-    //     queryString +=
-    // },
-    update: function(table, objColVals, condition, cb) {
+        console.log(queryString);
+
+        connection.query(queryString, values, function(err, result){
+            if (err) throw err;
+            cb(result);
+        });
+    },
+     update: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
     
         queryString += " SET ";
@@ -57,7 +62,6 @@ var orm = {
           if (err) {
             throw err;
           }
-    
           cb(result);
         });
       },

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $(".devour").on("click", function(){
-        // event.preventDefault();
+        event.preventDefault();
 
         var burgerID = $(this).data("id");
         console.log("we got clicked " + burgerID);
@@ -10,10 +10,24 @@ $(document).ready(function(){
             url: "/api/burgers/" + burgerID
         }).then(function(data){
             location.reload();
-        })
-        //ajax call, location reload belongs in the then
+        });
+    });
 
-
-    })
-
+    $(".create-form").on("submit", function(event){
+        event.preventDefault();
+    
+        var newBurger = {
+            burger_name: $("#burger_name").val().trim(),
+            devoured: $("[name=devoured]:checked").val().trim()
+        }
+    
+        $.ajax("/api/burgers",{
+            type: "POST",
+            data: newBurger
+        }).then(function(){
+            console.log("made new burger");
+            location.reload();
+        });
+    });
 });
+

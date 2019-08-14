@@ -19,6 +19,16 @@ router.get("/", function(req, res){
     
 });
 
+router.post("/api/burgers", function(req, res){
+    burger.addBurger([
+        "burger_name", "devoured"
+    ], [
+        req.body.burger_name, req.body.devoured
+    ], function(result){
+        res.json({ id: result.insertId });
+    });
+});
+
 router.put("/api/burgers/:id", function(req, res){
     burger.updateBurgers(req.params.id, function(result){
         console.log(result);
