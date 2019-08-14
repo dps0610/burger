@@ -1,3 +1,55 @@
 body {
     text-align: center;
+    background-color: cadetblue;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: cadetblue;
+    background-color: lemonchiffon;
+    border-style: solid;
+    border-width: 3px;
+    border-color: darkorange;
+    border-radius: 20px;
+    height: 550px;
+}
+
+#fresh-burgers {
+    float: left;
+    margin: 0 auto;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+#devoured-burgers{
+    float: right;
+    margin: 0 auto;
+    margin-right: 100px;
+}
+
+ul {
+    display: inline;
+}
+
+#make-your-own {
+    clear: both;
+}
+
+.changes {
+    border-bottom: solid 2px;
+    border-color: cadetblue;
+    margin-bottom: 5px;
+}
+
+button {
+    border-radius: 4px;
+    border-color: darkgoldenrod;
+    color: darkcyan;
+    background-color: white;
+}
+
+ul {
+    padding: 0;
 }
