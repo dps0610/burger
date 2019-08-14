@@ -19,16 +19,18 @@ body {
 #fresh-burgers {
     float: left;
     margin: 0 auto;
-    margin-left: 100px;
+    margin-left: 200px;
     margin-bottom: 20px;
 }
 
 #devoured-burgers{
     float: right;
     margin: 0 auto;
-    margin-right: 100px;
+    margin-right: 200px;
 }
-
+#fresh-burgers, #devoured_burgers {
+    text-align: center;
+}
 ul {
     display: inline;
 }
